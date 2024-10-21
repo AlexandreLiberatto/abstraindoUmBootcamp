@@ -1,30 +1,23 @@
 package abstraindo_um_bootcamp;
 
+import java.time.LocalDate;
+
 public class Mentorias extends Conteudo {
 
-    //Atributo
     private LocalDate data;
 
-
-    @Override
-    public double calcularXp(double xp_padrao) {
-        double total_xp = 0;
-        for(int i = 0; i <= cargaHoraria.length; i++){
-           total_xp += xp_padrao;
-        }
-        return total_xp;
-    }
-
-
-    public LocalDate getData() {
-        return data;
-    }
-
-
-    public void setData(LocalDate data) {
+    public Mentorias(String titulo, String descricao, LocalDate data) {
+        setTitulo(titulo);
+        setDescricao(descricao);
         this.data = data;
     }
 
-    
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO + 20.0; // XP fixo adicional para mentorias
+    }
 
+    // Getters e Setters
+    public LocalDate getData() { return data; }
+    public void setData(LocalDate data) { this.data = data; }
 }
